@@ -1,0 +1,144 @@
+[{
+  "_id": {
+    "$oid": "6aa0705267283dd2b7500b5e"
+  },
+  "productId": "100000010-OL-001",
+  "naziv": "Hemijska olovka Classic",
+  "tip": "lajk",
+  "datum": "2026-08-30 09:00:00"
+},
+{
+  "_id": {
+    "$oid": "6aa0705267283dd2b7500b5f"
+  },
+  "productId": "100000010-OL-001",
+  "naziv": "Hemijska olovka Classic",
+  "tip": "lajk",
+  "datum": "2026-08-31 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6aa0705267283dd2b7500b60"
+  },
+  "productId": "100000010-OL-001",
+  "naziv": "Hemijska olovka Classic",
+  "tip": "dislajk",
+  "datum": "2026-09-01 11:00:00"
+},
+{
+  "_id": {
+    "$oid": "6aa0705267283dd2b7500b61"
+  },
+  "productId": "100000010-OL-001",
+  "naziv": "Hemijska olovka Classic",
+  "tip": "lajk",
+  "datum": "2026-09-03 09:30:00"
+},
+{
+  "_id": {
+    "$oid": "6aa0705267283dd2b7500b62"
+  },
+  "productId": "100000010-OL-001",
+  "naziv": "Hemijska olovka Classic",
+  "tip": "lajk",
+  "datum": "2026-09-05 15:00:00"
+},
+{
+  "_id": {
+    "$oid": "6aa0705267283dd2b7500b63"
+  },
+  "productId": "100000010-OL-001",
+  "naziv": "Hemijska olovka Classic",
+  "tip": "lajk",
+  "datum": "2026-09-07 08:00:00"
+},
+{
+  "_id": {
+    "$oid": "6aa0705267283dd2b7500b64"
+  },
+  "productId": "100000020-SO-001",
+  "naziv": "Keramička šolja",
+  "tip": "lajk",
+  "datum": "2026-08-29 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6aa0705267283dd2b7500b65"
+  },
+  "productId": "100000020-SO-001",
+  "naziv": "Keramička šolja",
+  "tip": "lajk",
+  "datum": "2026-09-01 12:00:00"
+},
+{
+  "_id": {
+    "$oid": "6aa0705267283dd2b7500b66"
+  },
+  "productId": "100000020-SO-001",
+  "naziv": "Keramička šolja",
+  "tip": "lajk",
+  "datum": "2026-09-02 12:30:00"
+},
+{
+  "_id": {
+    "$oid": "6aa0705267283dd2b7500b67"
+  },
+  "productId": "100000020-SO-001",
+  "naziv": "Keramička šolja",
+  "tip": "dislajk",
+  "datum": "2026-09-04 09:00:00"
+},
+{
+  "_id": {
+    "$oid": "6aa0705267283dd2b7500b68"
+  },
+  "productId": "100000020-SO-001",
+  "naziv": "Keramička šolja",
+  "tip": "lajk",
+  "datum": "2026-09-06 14:00:00"
+},
+{
+  "_id": {
+    "$oid": "6aa0705267283dd2b7500b69"
+  },
+  "productId": "100000030-MA-001",
+  "naziv": "Majica pamučna",
+  "tip": "lajk",
+  "datum": "2026-08-28 08:00:00"
+},
+{
+  "_id": {
+    "$oid": "6aa0705267283dd2b7500b6a"
+  },
+  "productId": "100000030-MA-001",
+  "naziv": "Majica pamučna",
+  "tip": "dislajk",
+  "datum": "2026-08-30 08:30:00"
+},
+{
+  "_id": {
+    "$oid": "6aa0705267283dd2b7500b6b"
+  },
+  "productId": "100000030-MA-001",
+  "naziv": "Majica pamučna",
+  "tip": "lajk",
+  "datum": "2026-09-02 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6aa0705267283dd2b7500b6c"
+  },
+  "productId": "100000030-MA-001",
+  "naziv": "Majica pamučna",
+  "tip": "lajk",
+  "datum": "2026-09-05 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6aa0705267283dd2b7500b6d"
+  },
+  "productId": "100000030-MA-001",
+  "naziv": "Majica pamučna",
+  "tip": "lajk",
+  "datum": "2026-09-07 10:00:00"
+}]

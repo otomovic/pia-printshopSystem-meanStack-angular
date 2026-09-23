@@ -1,0 +1,63 @@
+[{
+  "_id": {
+    "$oid": "6aa063ea67283dd2b7500b23"
+  },
+  "naziv": "Štampa malih formata",
+  "potkategorije": [
+    {
+      "naziv": "Olovke"
+    },
+    {
+      "naziv": "Vizit karte"
+    },
+    {
+      "naziv": "Flajeri"
+    },
+    {
+      "naziv": "Zahvalnice"
+    },
+    {
+      "naziv": "Pozivnice"
+    },
+    {
+      "naziv": "Fascikle"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6aa063ea67283dd2b7500b24"
+  },
+  "naziv": "Štampa velikih formata",
+  "potkategorije": [
+    {
+      "naziv": "Posteri"
+    },
+    {
+      "naziv": "Rollups"
+    },
+    {
+      "naziv": "Fototapete"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6aa063ea67283dd2b7500b25"
+  },
+  "naziv": "Kreativne štampe",
+  "potkategorije": [
+    {
+      "naziv": "Šolje"
+    },
+    {
+      "naziv": "Štampa na majicama"
+    },
+    {
+      "naziv": "Štampa na duksevima"
+    },
+    {
+      "naziv": "Štampa na cegerima"
+    }
+  ]
+}]

@@ -1,0 +1,117 @@
+[{
+  "_id": {
+    "$oid": "6aa0527fb17d83d90fa78256"
+  },
+  "klijent": "mika",
+  "stavke": [
+    {
+      "naziv": "Promotivni Roll-up Baner 85x200cm",
+      "kolicina": 1
+    }
+  ],
+  "trajanjeMinuta": 10,
+  "status": "zakljucena",
+  "raspisano": {
+    "$date": "2026-09-08T18:22:55.524Z"
+  },
+  "datumRaspisivanja": "2026-09-08 20:22:55",
+  "ponude": [
+    {
+      "stamparijaId": "123123",
+      "nazivStamparije": "Metropolis",
+      "stavke": [
+        {
+          "naziv": "Promotivni Roll-up Baner 85x200cm",
+          "kolicina": 1,
+          "productId": "6a9ed04ffd980eaccb1dde95",
+          "jedinicnaCena": 5000,
+          "ukupnaCena": 5000
+        }
+      ],
+      "ukupnaPonuda": 5000,
+      "_id": {
+        "$oid": "6aa052a0b17d83d90fa7825f"
+      },
+      "datum": "2026-09-08 20:23:28"
+    }
+  ],
+  "__v": 1,
+  "pdfPath": "nabavke/6aa0527fb17d83d90fa78256.pdf",
+  "pobednik": {
+    "stamparijaId": "123123",
+    "nazivStamparije": "Metropolis",
+    "ukupnaPonuda": 5000,
+    "fakturaId": "6aa058c6f2d5fb7510f25a20"
+  }
+},
+{
+  "_id": {
+    "$oid": "6aa05c798bd98e0c4358692a"
+  },
+  "klijent": "mika",
+  "stavke": [
+    {
+      "naziv": "Keramička šolja 330ml",
+      "kolicina": 1
+    }
+  ],
+  "trajanjeMinuta": 10,
+  "status": "zakljucena",
+  "raspisano": {
+    "$date": "2026-09-08T19:05:29.511Z"
+  },
+  "datumRaspisivanja": "2026-09-08 21:05:29",
+  "ponude": [],
+  "__v": 0,
+  "pdfPath": "nabavke/6aa05c798bd98e0c4358692a.pdf"
+},
+{
+  "_id": {
+    "$oid": "6aa07585e1e8250746628448"
+  },
+  "klijent": "novafirma",
+  "stavke": [
+    {
+      "naziv": "Keramička šolja",
+      "kolicina": 1
+    },
+    {
+      "naziv": "Ceger platneni",
+      "kolicina": 1
+    }
+  ],
+  "trajanjeMinuta": 10,
+  "status": "otvorena",
+  "raspisano": {
+    "$date": "2026-09-08T20:52:21.053Z"
+  },
+  "datumRaspisivanja": "2026-09-08 22:52:21",
+  "ponude": [
+    {
+      "stamparijaId": "100000010",
+      "nazivStamparije": "GrafoPrint d.o.o.",
+      "stavke": [
+        {
+          "naziv": "Keramička šolja",
+          "kolicina": 1,
+          "productId": "100000010-VK-001",
+          "jedinicnaCena": 50,
+          "ukupnaCena": 50
+        },
+        {
+          "naziv": "Ceger platneni",
+          "kolicina": 1,
+          "productId": "100000010-OL-001",
+          "jedinicnaCena": 90,
+          "ukupnaCena": 90
+        }
+      ],
+      "ukupnaPonuda": 140,
+      "_id": {
+        "$oid": "6aa075c8e1e8250746628449"
+      },
+      "datum": "2026-09-08 22:53:28"
+    }
+  ],
+  "__v": 1
+}]

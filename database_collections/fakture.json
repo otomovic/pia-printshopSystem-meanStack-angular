@@ -1,0 +1,197 @@
+[{
+  "_id": {
+    "$oid": "6aa0706867283dd2b7500b71"
+  },
+  "kupac": "mika92",
+  "stamparijaId": "100000010",
+  "nazivStamparije": "GrafoPrint d.o.o.",
+  "gradStamparije": "Beograd",
+  "stavke": [
+    {
+      "productId": "100000010-OL-001",
+      "naziv": "Hemijska olovka Classic",
+      "kolicina": 50,
+      "boja": "Plava",
+      "tipStampe": "",
+      "tekst": "",
+      "slika": "",
+      "jedinicnaCena": 60,
+      "ukupnaCena": 3000
+    }
+  ],
+  "ukupanIznos": 3000,
+  "status": "primljeno",
+  "datum": "2026-09-05 10:15:00"
+},
+{
+  "_id": {
+    "$oid": "6aa0706867283dd2b7500b72"
+  },
+  "kupac": "jovana88",
+  "stamparijaId": "100000020",
+  "nazivStamparije": "PrintMax d.o.o.",
+  "gradStamparije": "Novi Sad",
+  "stavke": [
+    {
+      "productId": "100000020-PO-001",
+      "naziv": "Poster A2",
+      "kolicina": 2,
+      "boja": "Bela",
+      "tipStampe": "",
+      "tekst": "",
+      "slika": "",
+      "jedinicnaCena": 350,
+      "ukupnaCena": 700
+    },
+    {
+      "productId": "100000020-SO-001",
+      "naziv": "Keramička šolja",
+      "kolicina": 5,
+      "boja": "Bela",
+      "tipStampe": "Foto štampa",
+      "tekst": "",
+      "slika": "",
+      "jedinicnaCena": 550,
+      "ukupnaCena": 2750
+    }
+  ],
+  "ukupanIznos": 3450,
+  "status": "isporuceno",
+  "datum": "2026-08-20 14:30:00"
+},
+{
+  "_id": {
+    "$oid": "6aa0706867283dd2b7500b73"
+  },
+  "kupac": "abcreklame",
+  "stamparijaId": "100000030",
+  "nazivStamparije": "ArtePrint d.o.o.",
+  "gradStamparije": "Niš",
+  "stavke": [
+    {
+      "productId": "100000030-MA-001",
+      "naziv": "Majica pamučna",
+      "kolicina": 30,
+      "boja": "Crna",
+      "tipStampe": "Digitalna štampa",
+      "tekst": "ABC Reklame",
+      "slika": "",
+      "jedinicnaCena": 900,
+      "ukupnaCena": 27000
+    }
+  ],
+  "ukupanIznos": 27000,
+  "status": "u stampi",
+  "datum": "2026-08-01 09:00:00"
+},
+{
+  "_id": {
+    "$oid": "6aa0706867283dd2b7500b74"
+  },
+  "kupac": "mika92",
+  "stamparijaId": "100000020",
+  "nazivStamparije": "PrintMax d.o.o.",
+  "gradStamparije": "Novi Sad",
+  "stavke": [
+    {
+      "productId": "100000020-RU-001",
+      "naziv": "Rollup 85x200",
+      "kolicina": 1,
+      "boja": "Bela",
+      "tipStampe": "",
+      "tekst": "",
+      "slika": "",
+      "jedinicnaCena": 4500,
+      "ukupnaCena": 4500
+    }
+  ],
+  "ukupanIznos": 4500,
+  "status": "naruceno",
+  "datum": "2026-09-07 16:45:00"
+},
+{
+  "_id": {
+    "$oid": "6aa0706867283dd2b7500b75"
+  },
+  "kupac": "jovana88",
+  "stamparijaId": "100000010",
+  "nazivStamparije": "GrafoPrint d.o.o.",
+  "gradStamparije": "Beograd",
+  "stavke": [
+    {
+      "productId": "100000010-FL-001",
+      "naziv": "Flajer A5",
+      "kolicina": 500,
+      "boja": "Bela",
+      "tipStampe": "",
+      "tekst": "",
+      "slika": "",
+      "jedinicnaCena": 15,
+      "ukupnaCena": 7500
+    }
+  ],
+  "ukupanIznos": 7500,
+  "status": "otkazano",
+  "datum": "2026-08-15 11:00:00"
+},
+{
+  "_id": {
+    "$oid": "6aa0706867283dd2b7500b76"
+  },
+  "kupac": "grafikaplus",
+  "stamparijaId": "100000010",
+  "nazivStamparije": "GrafoPrint d.o.o.",
+  "gradStamparije": "Beograd",
+  "stavke": [
+    {
+      "productId": "100000010-VK-001",
+      "naziv": "Vizit karta sjajna",
+      "kolicina": 1000,
+      "boja": "Bela",
+      "tipStampe": "",
+      "tekst": "",
+      "slika": "",
+      "jedinicnaCena": 5,
+      "ukupnaCena": 5000
+    }
+  ],
+  "ukupanIznos": 5000,
+  "status": "primljeno",
+  "datum": "2026-05-01 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6aa0706867283dd2b7500b77"
+  },
+  "kupac": "abcreklame",
+  "stamparijaId": "100000010",
+  "nazivStamparije": "GrafoPrint d.o.o.",
+  "gradStamparije": "Beograd",
+  "stavke": [
+    {
+      "productId": "100000010-OL-001",
+      "naziv": "Hemijska olovka Classic",
+      "kolicina": 100,
+      "boja": "Crna",
+      "tipStampe": "Gravura loga",
+      "tekst": "ABC Reklame",
+      "slika": "",
+      "jedinicnaCena": 70,
+      "ukupnaCena": 7000
+    },
+    {
+      "productId": "100000010-FL-001",
+      "naziv": "Flajer A5",
+      "kolicina": 50,
+      "boja": "Bela",
+      "tipStampe": "",
+      "tekst": "",
+      "slika": "",
+      "jedinicnaCena": 15,
+      "ukupnaCena": 750
+    }
+  ],
+  "ukupanIznos": 7750,
+  "status": "isporuceno",
+  "datum": "2026-08-25 09:00:00"
+}]

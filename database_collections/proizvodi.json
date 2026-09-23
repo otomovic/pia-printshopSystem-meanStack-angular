@@ -1,0 +1,240 @@
+[{
+  "_id": {
+    "$oid": "6aa11adba2d2dbb7c786a1f2"
+  },
+  "stamparijaId": "100000010",
+  "nazivStamparije": "GrafoPrint d.o.o.",
+  "proizvodi": [
+    {
+      "_id": "100000010-OL-001",
+      "sifra": "OL-001",
+      "naziv": "Hemijska olovka Classic",
+      "opis": "Plastična hemijska olovka sa mogućnošću štampe loga.",
+      "kategorija": "Štampa malih formata",
+      "potkategorija": "Olovke",
+      "jedinicnaCena": 60,
+      "kolicinaNaLageru": 500,
+      "dostupneBoje": [
+        "Plava",
+        "Crna",
+        "Crvena"
+      ],
+      "uslugeStampe": [
+        {
+          "idUsluge": "gravura",
+          "tipStampe": "Gravura loga",
+          "dodatnaCenaPoKomadu": 10,
+          "maxSirinaMm": 40,
+          "maxVisinaMm": 10
+        }
+      ],
+      "aktivan": true,
+      "brojLajkova": 12,
+      "brojDislajkova": 1,
+      "slikaUrl": "AExcelenceVLP6.jpg"
+    },
+    {
+      "_id": "100000010-VK-001",
+      "sifra": "VK-001",
+      "naziv": "Vizit karta sjajna",
+      "opis": "Vizit karta na sjajnom kartonu 300g.",
+      "kategorija": "Štampa malih formata",
+      "potkategorija": "Vizit karte",
+      "jedinicnaCena": 5,
+      "kolicinaNaLageru": 2000,
+      "dostupneBoje": [
+        "Bela"
+      ],
+      "uslugeStampe": [],
+      "aktivan": true,
+      "brojLajkova": 8,
+      "brojDislajkova": 0,
+      "slikaUrl": "new-colourful-minimal-simple-creative-business-card-design_867062-438.avif"
+    },
+    {
+      "_id": "100000010-FL-001",
+      "sifra": "FL-001",
+      "naziv": "Flajer A5",
+      "opis": "Flajer u A5 formatu, jednostrana ili dvostrana štampa.",
+      "kategorija": "Štampa malih formata",
+      "potkategorija": "Flajeri",
+      "jedinicnaCena": 15,
+      "kolicinaNaLageru": 1000,
+      "dostupneBoje": [
+        "Bela"
+      ],
+      "uslugeStampe": [],
+      "aktivan": true,
+      "brojLajkova": 5,
+      "brojDislajkova": 2,
+      "slikaUrl": "FL-001.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6aa11adba2d2dbb7c786a1f3"
+  },
+  "stamparijaId": "100000020",
+  "nazivStamparije": "PrintMax d.o.o.",
+  "proizvodi": [
+    {
+      "_id": "100000020-PO-001",
+      "sifra": "PO-001",
+      "naziv": "Poster A2",
+      "opis": "Poster štampan na foto papiru, format A2.",
+      "kategorija": "Štampa velikih formata",
+      "potkategorija": "Posteri",
+      "jedinicnaCena": 350,
+      "kolicinaNaLageru": 200,
+      "dostupneBoje": [
+        "Bela"
+      ],
+      "uslugeStampe": [],
+      "aktivan": true,
+      "brojLajkova": 20,
+      "brojDislajkova": 3,
+      "slikaUrl": "a2-white-poster-realistic-template-mockup-with-margins-realistic-shadow-light-background_109181-290.avif"
+    },
+    {
+      "_id": "100000020-RU-001",
+      "sifra": "RU-001",
+      "naziv": "Rollup 85x200",
+      "opis": "Reklamni rollup baner, dimenzije 85x200cm.",
+      "kategorija": "Štampa velikih formata",
+      "potkategorija": "Rollups",
+      "jedinicnaCena": 4500,
+      "kolicinaNaLageru": 50,
+      "dostupneBoje": [
+        "Bela"
+      ],
+      "uslugeStampe": [],
+      "aktivan": true,
+      "brojLajkova": 14,
+      "brojDislajkova": 1,
+      "slikaUrl": "images.jpg"
+    },
+    {
+      "_id": "100000020-SO-001",
+      "sifra": "SO-001",
+      "naziv": "Keramička šolja",
+      "opis": "Bela keramička šolja, 330ml, sa mogućnošću personalizacije.",
+      "kategorija": "Kreativne štampe",
+      "potkategorija": "Šolje",
+      "jedinicnaCena": 550,
+      "kolicinaNaLageru": 300,
+      "dostupneBoje": [
+        "Bela",
+        "Crna"
+      ],
+      "uslugeStampe": [
+        {
+          "idUsluge": "foto",
+          "tipStampe": "Foto štampa",
+          "dodatnaCenaPoKomadu": 100,
+          "maxSirinaMm": 90,
+          "maxVisinaMm": 80
+        }
+      ],
+      "aktivan": true,
+      "brojLajkova": 33,
+      "brojDislajkova": 2,
+      "slikaUrl": "realistic-white-cup_1284-45598.avif"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6aa11adba2d2dbb7c786a1f4"
+  },
+  "stamparijaId": "100000030",
+  "nazivStamparije": "ArtePrint d.o.o.",
+  "proizvodi": [
+    {
+      "_id": "100000030-MA-001",
+      "sifra": "MA-001",
+      "naziv": "Majica pamučna",
+      "opis": "100% pamučna majica, unisex kroj.",
+      "kategorija": "Kreativne štampe",
+      "potkategorija": "Štampa na majicama",
+      "jedinicnaCena": 900,
+      "kolicinaNaLageru": 400,
+      "dostupneBoje": [
+        "Bela",
+        "Crna",
+        "Siva"
+      ],
+      "uslugeStampe": [
+        {
+          "idUsluge": "digitalna",
+          "tipStampe": "Digitalna štampa",
+          "dodatnaCenaPoKomadu": 200,
+          "maxSirinaMm": 250,
+          "maxVisinaMm": 300
+        }
+      ],
+      "aktivan": true,
+      "brojLajkova": 41,
+      "brojDislajkova": 4,
+      "slikaUrl": "il_1080xN.2965872441_5v6e.webp"
+    },
+    {
+      "_id": "100000030-DU-001",
+      "sifra": "DU-001",
+      "naziv": "Duks sa kapuljačom",
+      "opis": "Pamučno-poliesterski duks sa kapuljačom.",
+      "kategorija": "Kreativne štampe",
+      "potkategorija": "Štampa na duksevima",
+      "jedinicnaCena": 2200,
+      "kolicinaNaLageru": 150,
+      "dostupneBoje": [
+        "Crna",
+        "Siva",
+        "Teget"
+      ],
+      "uslugeStampe": [],
+      "aktivan": true,
+      "brojLajkova": 18,
+      "brojDislajkova": 1,
+      "slikaUrl": "22548303_52466609_1000.webp"
+    },
+    {
+      "_id": "100000030-CE-001",
+      "sifra": "CE-001",
+      "naziv": "Ceger platneni",
+      "opis": "Ekološki platneni ceger za višekratnu upotrebu.",
+      "kategorija": "Kreativne štampe",
+      "potkategorija": "Štampa na cegerima",
+      "jedinicnaCena": 400,
+      "kolicinaNaLageru": 600,
+      "dostupneBoje": [
+        "Bela",
+        "Bež"
+      ],
+      "uslugeStampe": [],
+      "aktivan": true,
+      "brojLajkova": 9,
+      "brojDislajkova": 0,
+      "slikaUrl": "Canvas-Tote-Bag_800x800.jpg"
+    },
+    {
+      "_id": "100000030-PZ-001",
+      "sifra": "PZ-001",
+      "naziv": "Pozivnica za venčanje",
+      "opis": "Elegantna pozivnica sa zlatnim detaljima.",
+      "kategorija": "Štampa malih formata",
+      "potkategorija": "Pozivnice",
+      "jedinicnaCena": 90,
+      "kolicinaNaLageru": 800,
+      "dostupneBoje": [
+        "Bela",
+        "Krem"
+      ],
+      "uslugeStampe": [],
+      "aktivan": true,
+      "brojLajkova": 6,
+      "brojDislajkova": 0,
+      "slikaUrl": "PZ-001.jpg"
+    }
+  ]
+}]

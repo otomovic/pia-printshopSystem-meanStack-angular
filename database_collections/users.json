@@ -1,0 +1,179 @@
+[{
+  "_id": {
+    "$oid": "6aa0703b67283dd2b7500b4f"
+  },
+  "username": "admin",
+  "password": "$2b$10$tPsHRRyA22VX2HufMwQBU.B1KgupLUXLIU/1SsJSFB1B34BzRjLVW",
+  "firstname": "Admin",
+  "lastname": "Administratorović",
+  "phone": "0600000000",
+  "email": "admin@printinghouse.rs",
+  "type": "admin",
+  "profileImage": "default_profile_image.jpg",
+  "accepted": true
+},
+{
+  "_id": {
+    "$oid": "6aa0703b67283dd2b7500b50"
+  },
+  "username": "mika92",
+  "password": "$2b$10$4G18EZxYQ0dkGcFGEMI09e87u.L1WvrMmOz5zkeQqIErOptJhd2Mu",
+  "firstname": "Mika",
+  "lastname": "Mikić",
+  "phone": "0641111111",
+  "email": "mika@example.com",
+  "type": "fizickoLice",
+  "profileImage": "1789071968843.jpeg",
+  "accepted": true
+},
+{
+  "_id": {
+    "$oid": "6aa0703b67283dd2b7500b51"
+  },
+  "username": "jovana88",
+  "password": "$2b$10$tPsHRRyA22VX2HufMwQBU.B1KgupLUXLIU/1SsJSFB1B34BzRjLVW",
+  "firstname": "Jovana",
+  "lastname": "Jovanović",
+  "phone": "0642222222",
+  "email": "jovana@example.com",
+  "type": "fizickoLice",
+  "profileImage": "default_profile_image.jpg",
+  "accepted": true
+},
+{
+  "_id": {
+    "$oid": "6aa0703b67283dd2b7500b52"
+  },
+  "username": "abcreklame",
+  "password": "$2b$10$tPsHRRyA22VX2HufMwQBU.B1KgupLUXLIU/1SsJSFB1B34BzRjLVW",
+  "firstname": "Petar",
+  "lastname": "Petrović",
+  "phone": "0643333333",
+  "email": "kontakt@abcreklame.rs",
+  "type": "pravnoLice",
+  "nazivFirme": "ABC Reklame d.o.o.",
+  "adresa": "Bulevar Kralja Aleksandra 10",
+  "grad": "Beograd",
+  "pib": "100000001",
+  "maticniBroj": "20000001",
+  "profileImage": "default_profile_image.jpg",
+  "accepted": true
+},
+{
+  "_id": {
+    "$oid": "6aa0703b67283dd2b7500b53"
+  },
+  "username": "grafikaplus",
+  "password": "$2b$10$tPsHRRyA22VX2HufMwQBU.B1KgupLUXLIU/1SsJSFB1B34BzRjLVW",
+  "firstname": "Ana",
+  "lastname": "Anić",
+  "phone": "0644444444",
+  "email": "kontakt@grafikaplus.rs",
+  "type": "pravnoLice",
+  "nazivFirme": "Grafika Plus d.o.o.",
+  "adresa": "Cara Dušana 5",
+  "grad": "Novi Sad",
+  "pib": "100000002",
+  "maticniBroj": "20000002",
+  "profileImage": "default_profile_image.jpg",
+  "accepted": true
+},
+{
+  "_id": {
+    "$oid": "6aa0703b67283dd2b7500b54"
+  },
+  "username": "novafirma",
+  "password": "$2b$10$tPsHRRyA22VX2HufMwQBU.B1KgupLUXLIU/1SsJSFB1B34BzRjLVW",
+  "firstname": "Milica",
+  "lastname": "Milić",
+  "phone": "0645555555",
+  "email": "kontakt@novafirma.rs",
+  "type": "pravnoLice",
+  "nazivFirme": "Nova Firma d.o.o.",
+  "adresa": "Zmaj Jovina 3",
+  "grad": "Kragujevac",
+  "pib": "100000003",
+  "maticniBroj": "20000003",
+  "profileImage": "default_profile_image.jpg",
+  "accepted": true
+},
+{
+  "_id": {
+    "$oid": "6aa0703b67283dd2b7500b55"
+  },
+  "username": "grafoprint",
+  "password": "$2b$10$tPsHRRyA22VX2HufMwQBU.B1KgupLUXLIU/1SsJSFB1B34BzRjLVW",
+  "firstname": "Nikola",
+  "lastname": "Nikolić",
+  "phone": "0646666666",
+  "email": "kontakt@grafoprint.rs",
+  "type": "stamparija",
+  "nazivFirme": "GrafoPrint d.o.o.",
+  "adresa": "Industrijska 1",
+  "grad": "Beograd",
+  "pib": "100000010",
+  "maticniBroj": "20000010",
+  "stamparijaId": "100000010",
+  "profileImage": "default_profile_image.jpg",
+  "accepted": true
+},
+{
+  "_id": {
+    "$oid": "6aa0703b67283dd2b7500b56"
+  },
+  "username": "printmax",
+  "password": "$2b$10$tPsHRRyA22VX2HufMwQBU.B1KgupLUXLIU/1SsJSFB1B34BzRjLVW",
+  "firstname": "Marija",
+  "lastname": "Marić",
+  "phone": "0647777777",
+  "email": "kontakt@printmax.rs",
+  "type": "stamparija",
+  "nazivFirme": "PrintMax d.o.o.",
+  "adresa": "Fruškogorska 22",
+  "grad": "Novi Sad",
+  "pib": "100000020",
+  "maticniBroj": "20000020",
+  "stamparijaId": "100000020",
+  "profileImage": "default_profile_image.jpg",
+  "accepted": true
+},
+{
+  "_id": {
+    "$oid": "6aa0703b67283dd2b7500b57"
+  },
+  "username": "arteprint",
+  "password": "$2b$10$tPsHRRyA22VX2HufMwQBU.B1KgupLUXLIU/1SsJSFB1B34BzRjLVW",
+  "firstname": "Stefan",
+  "lastname": "Stefanović",
+  "phone": "0648888888",
+  "email": "kontakt@arteprint.rs",
+  "type": "stamparija",
+  "nazivFirme": "ArtePrint d.o.o.",
+  "adresa": "Vojvode Tankosića 7",
+  "grad": "Niš",
+  "pib": "100000030",
+  "maticniBroj": "20000030",
+  "stamparijaId": "100000030",
+  "profileImage": "default_profile_image.jpg",
+  "accepted": true
+},
+{
+  "_id": {
+    "$oid": "6aa0703b67283dd2b7500b58"
+  },
+  "username": "brzastampa",
+  "password": "$2b$10$tPsHRRyA22VX2HufMwQBU.B1KgupLUXLIU/1SsJSFB1B34BzRjLVW",
+  "firstname": "Dušan",
+  "lastname": "Đurić",
+  "phone": "0649999999",
+  "email": "kontakt@brzastampa.rs",
+  "type": "stamparija",
+  "nazivFirme": "Brza Štampa d.o.o.",
+  "adresa": "Kneza Miloša 15",
+  "grad": "Subotica",
+  "pib": "100000040",
+  "maticniBroj": "20000040",
+  "stamparijaId": "100000040",
+  "profileImage": "default_profile_image.jpg",
+  "accepted": true
+}]
