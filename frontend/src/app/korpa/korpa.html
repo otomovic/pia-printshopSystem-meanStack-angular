@@ -1,0 +1,63 @@
+<header class="bg-white border-bottom">
+	<div class="container d-flex align-items-center justify-content-between py-3">
+		<a routerLink="/" class="fs-4 fw-bold text-decoration-none text-dark">Printing House</a>
+		<a routerLink="/client" class="btn btn-outline-secondary">Nazad na pretragu</a>
+	</div>
+</header>
+
+<main class="container py-5">
+	<h1 class="fw-bold mb-4">Korpa</h1>
+
+	@if (!groups.length) {
+		<p class="text-muted">Korpa je prazna.</p>
+	}
+
+	@for (grupa of groups; track grupa.stamparijaId) {
+		<div class="bg-white border rounded-3 shadow-sm p-4 mb-4">
+			<h2 class="h5 fw-bold mb-1">{{ grupa.printerName }}</h2>
+			<p class="text-muted mb-3">{{ grupa.grad }}</p>
+
+			<div class="table-responsive">
+				<table class="table align-middle">
+					<thead>
+						<tr>
+							<th>Proizvod</th>
+							<th>Boja</th>
+							<th>Tip štampe</th>
+							<th>Količina</th>
+							<th>Ukupno</th>
+						</tr>
+					</thead>
+					<tbody>
+						@for (item of grupa.items; track $index) {
+							<tr>
+								<td>{{ item.naziv }}</td>
+								<td>{{ item.boja }}</td>
+								<td>{{ item.tipStampe || '-' }}</td>
+								<td>{{ item.kolicina }}</td>
+								<td>{{ item.ukupnaCena }} din</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+
+			<p class="text-end fw-semibold mb-0">Ukupno za štampariju: {{ grupa.ukupanIznos }} din</p>
+		</div>
+	}
+
+	@if (isPravnoLice && groups.length) {
+		<p class="text-muted">
+			Kao pravno lice, potvrdom se ne kreiraju fakture direktno &mdash; raspisuje se javna nabavka.
+			Štamparije imaju 10 minuta da pošalju ponude, nakon čega se bira najpovoljnija.
+		</p>
+	}
+
+	@if (message) {
+		<p class="text-danger">{{ message }}</p>
+	}
+
+	@if (groups.length) {
+		<button class="btn btn-primary" (click)="potvrdi()">{{ isPravnoLice ? 'Raspiši javnu nabavku' : 'Potvrdi' }}</button>
+	}
+</main>

@@ -1,0 +1,94 @@
+<header class="bg-white border-bottom">
+  <div class="container d-flex align-items-center justify-content-between py-3">
+    <a routerLink="/" class="fs-4 fw-bold text-decoration-none text-dark">Printing House</a>
+    <a routerLink="/login" class="btn btn-outline-primary">Prijava</a>
+  </div>
+</header>
+
+<main class="container py-5">
+  <section class="w-100 mx-auto mb-5" style="max-width: 28rem;">
+    <div class="bg-white border rounded-3 shadow-sm p-4 text-center">
+      <span class="text-muted">Broj registrovanih štamparija</span>
+      <span class="d-block display-5 fw-bold text-primary">{{ printerCount }}</span>
+    </div>
+  </section>
+
+  <section class="mb-5">
+    <h2 class="fw-bold mb-4">Najbolje ocenjeni proizvodi</h2>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-5 g-4">
+      @for (p of topProducts; track p._id) {
+        <div class="col">
+          <div class="card h-100 border rounded-3 shadow-sm">
+            @if(p.slikaGlavna) {
+            <img [src]="'http://localhost:4000/uploads/products/' + p.slikaGlavna" [alt]="p.naziv" class="card-img-top" style="height: 160px; object-fit: cover;" />
+            } @else {
+            <div class="bg-light border d-flex align-items-center justify-content-center" style="height: 160px;">
+              <span class="text-muted">Slika nedostupna</span>
+            </div>
+            }
+            <div class="card-body d-flex flex-column">
+              <h3 class="h6 fw-semibold">{{ p.naziv }}</h3>
+              <p class="text-danger mb-3">👍 {{ p.brojLajkova }} 👎 {{ p.brojDislajkova }}</p>
+              <button class="btn btn-primary btn-sm mt-auto" (click)="goToDetails(p._id)">Detalji</button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="w-100 mx-auto" style="max-width: 60rem;">
+    <div class="bg-white border rounded-3 shadow-sm p-4">
+      <h2 class="fw-bold mb-4">Pretraga proizvoda</h2>
+      <form class="row g-3 align-items-end mb-2" (ngSubmit)="search()">
+        <div class="col-md-5">
+          <label for="searchTerm" class="form-label">Naziv proizvoda</label>
+          <input id="searchTerm" type="text" name="searchTerm" class="form-control" placeholder="npr. Hemijska olovka" [(ngModel)]="searchTerm" />
+        </div>
+        <div class="col-md-4">
+          <label for="category" class="form-label">Kategorija</label>
+          <select id="category" name="category" class="form-select" [(ngModel)]="selectedCategory">
+            <option value="">Sve kategorije</option>
+            @for (c of categories; track c) {
+              <option [value]="c">{{ c }}</option>
+            }
+          </select>
+        </div>
+        <div class="col-md-3">
+          <button type="submit" class="btn btn-primary w-100">Pretraži</button>
+        </div>
+      </form>
+
+      @if (results.length) {
+        <div class="table-responsive">
+          <table class="table table-hover align-middle mt-3">
+            <thead>
+              <tr>
+                <th (click)="sortBy('naziv')" role="button">Naziv proizvoda</th>
+                <th>Kategorija</th>
+                <th>Cena</th>
+                <th>Štamparija</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (r of results; track r._id) {
+                <tr>
+                  <td>{{ r.naziv }}</td>
+                  <td>{{ r.categoryName }}</td>
+                  <td>{{ r.jedinicnaCena }} din</td>
+                  <td>{{ r.printerName }}</td>
+                  <td><button class="btn btn-primary btn-sm" (click)="goToDetails(r._id)">Detalji</button></td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      }
+
+      @if (searched && !results.length) {
+        <p class="text-muted mt-3 mb-0">Nema proizvoda koji odgovaraju pretrazi.</p>
+      }
+    </div>
+  </section>
+</main>

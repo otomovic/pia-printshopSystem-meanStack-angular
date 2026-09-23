@@ -1,0 +1,108 @@
+<header class="bg-white border-bottom">
+	<div class="container d-flex align-items-center justify-content-between py-3">
+		<a routerLink="/" class="fs-4 fw-bold text-decoration-none text-dark">Printing House</a>
+		<a routerLink="/stampar" class="btn btn-outline-secondary">Nazad</a>
+	</div>
+</header>
+
+<main class="container py-5">
+	<section class="mx-auto" style="max-width: 48rem;">
+		<h1 class="fw-bold mb-4">Dodavanje proizvoda</h1>
+
+		<form class="bg-white border p-4 p-md-5" (ngSubmit)="submit()">
+			<div class="row g-3">
+				<div class="col-md-6">
+					<label for="sifra" class="form-label">Šifra</label>
+					<input id="sifra" name="sifra" class="form-control" [(ngModel)]="sifra" required>
+				</div>
+				<div class="col-md-6">
+					<label for="naziv" class="form-label">Naziv</label>
+					<input id="naziv" name="naziv" class="form-control" [(ngModel)]="naziv" required>
+				</div>
+				<div class="col-12">
+					<label for="opis" class="form-label">Opis</label>
+					<textarea id="opis" name="opis" class="form-control" rows="3" [(ngModel)]="opis"></textarea>
+				</div>
+				<div class="col-md-6">
+					<label for="kategorija" class="form-label">Kategorija</label>
+					<select id="kategorija" name="kategorija" class="form-select" [(ngModel)]="kategorija" (ngModelChange)="onCategoryChange()">
+						<option value="" disabled>Izaberite kategoriju</option>
+						@for (c of categories; track c.naziv) {
+							<option [value]="c.naziv">{{ c.naziv }}</option>
+						}
+					</select>
+				</div>
+				<div class="col-md-6">
+					<label for="potkategorija" class="form-label">Potkategorija</label>
+					<select id="potkategorija" name="potkategorija" class="form-select" [(ngModel)]="potkategorija">
+						<option value="" disabled>Izaberite potkategoriju</option>
+						@for (s of subcategories; track s.naziv) {
+							<option [value]="s.naziv">{{ s.naziv }}</option>
+						}
+					</select>
+				</div>
+				<div class="col-md-6">
+					<label for="jedinicnaCena" class="form-label">Jedinična cena (din)</label>
+					<input id="jedinicnaCena" name="jedinicnaCena" type="number" class="form-control" [(ngModel)]="jedinicnaCena" required>
+				</div>
+				<div class="col-md-6">
+					<label for="kolicinaNaLageru" class="form-label">Količina na lageru</label>
+					<input id="kolicinaNaLageru" name="kolicinaNaLageru" type="number" class="form-control" [(ngModel)]="kolicinaNaLageru">
+				</div>
+				<div class="col-12">
+					<label for="dostupneBoje" class="form-label">Dostupne boje (odvojene zarezom)</label>
+					<input id="dostupneBoje" name="dostupneBoje" class="form-control" placeholder="npr. Bela, Crna, Siva" [(ngModel)]="dostupneBoje">
+				</div>
+				<div class="col-md-6">
+					<label for="slikaGlavna" class="form-label">Glavna slika</label>
+					<input id="slikaGlavna" type="file" accept="image/*" class="form-control" (change)="onMainImageSelected($event)">
+				</div>
+				<div class="col-md-6">
+					<label for="dodatneSlike" class="form-label">Dodatne slike (do 3)</label>
+					<input id="dodatneSlike" type="file" accept="image/*" multiple class="form-control" (change)="onAdditionalImagesSelected($event)">
+				</div>
+			</div>
+
+			<div class="border-top mt-4 pt-4">
+				<div class="d-flex justify-content-between align-items-center mb-3">
+					<h2 class="h5 fw-bold mb-0">Dodatne usluge</h2>
+					<button type="button" class="btn btn-outline-secondary btn-sm" (click)="addUsluga()">Dodaj uslugu</button>
+				</div>
+
+				@for (u of uslugeStampe; track i; let i = $index) {
+					<div class="row g-2 align-items-end mb-2">
+						<div class="col-md-2">
+							<label class="form-label">ID usluge</label>
+							<input class="form-control" [name]="'idUsluge' + i" [(ngModel)]="u.idUsluge">
+						</div>
+						<div class="col-md-3">
+							<label class="form-label">Vrsta štampe</label>
+							<input class="form-control" [name]="'tipStampe' + i" [(ngModel)]="u.tipStampe">
+						</div>
+						<div class="col-md-2">
+							<label class="form-label">Dodatna cena</label>
+							<input type="number" class="form-control" [name]="'dodatnaCena' + i" [(ngModel)]="u.dodatnaCenaPoKomadu">
+						</div>
+						<div class="col-md-2">
+							<label class="form-label">Max širina (mm)</label>
+							<input type="number" class="form-control" [name]="'maxSirina' + i" [(ngModel)]="u.maxSirinaMm">
+						</div>
+						<div class="col-md-2">
+							<label class="form-label">Max visina (mm)</label>
+							<input type="number" class="form-control" [name]="'maxVisina' + i" [(ngModel)]="u.maxVisinaMm">
+						</div>
+						<div class="col-md-1">
+							<button type="button" class="btn btn-outline-danger w-100" (click)="removeUsluga(i)">&times;</button>
+						</div>
+					</div>
+				}
+			</div>
+
+			@if (message) {
+				<p class="text-danger mt-3 mb-0">{{ message }}</p>
+			}
+
+			<button type="submit" class="btn btn-primary w-100 mt-4">Sačuvaj proizvod</button>
+		</form>
+	</section>
+</main>

@@ -1,0 +1,45 @@
+<header class="bg-white border-bottom">
+	<div class="container d-flex align-items-center justify-content-between py-3">
+		<a routerLink="/" class="fs-4 fw-bold text-decoration-none text-dark">Printing House</a>
+		<a routerLink="/admin" class="btn btn-outline-secondary">Nazad</a>
+	</div>
+</header>
+
+<main class="container py-5">
+	<h1 class="fw-bold mb-4">Kategorije proizvoda</h1>
+
+	@if (message) {
+		<p class="text-success">{{ message }}</p>
+	}
+
+	<div class="bg-white border rounded-3 shadow-sm p-4 mb-4">
+		<h2 class="h5 fw-bold mb-3">Nova kategorija</h2>
+		<div class="d-flex gap-2">
+			<input class="form-control" placeholder="Naziv kategorije" name="novaKategorija" [(ngModel)]="novaKategorija">
+			<button class="btn btn-primary text-nowrap" (click)="dodajKategoriju()">Dodaj kategoriju</button>
+		</div>
+	</div>
+
+	@for (kategorija of kategorije; track kategorija._id) {
+		<div class="bg-white border rounded-3 shadow-sm p-4 mb-3">
+			<h3 class="h6 fw-bold mb-3">{{ kategorija.naziv }}</h3>
+
+			@if (kategorija.potkategorije.length) {
+				<ul class="mb-3">
+					@for (pot of kategorija.potkategorije; track pot.naziv) {
+						<li>{{ pot.naziv }}</li>
+					}
+				</ul>
+			} @else {
+				<p class="text-muted small">Nema potkategorija.</p>
+			}
+
+			<div class="d-flex gap-2">
+				<input class="form-control" placeholder="Naziv potkategorije" [name]="'pot' + kategorija._id" [(ngModel)]="novePotkategorije[kategorija._id]">
+				<button class="btn btn-outline-primary text-nowrap" (click)="dodajPotkategoriju(kategorija)">Dodaj potkategoriju</button>
+			</div>
+		</div>
+	} @empty {
+		<p class="text-muted">Još uvek nema kreiranih kategorija.</p>
+	}
+</main>

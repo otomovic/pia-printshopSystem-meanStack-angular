@@ -1,0 +1,88 @@
+<header class="bg-white border-bottom">
+	<div class="container d-flex align-items-center justify-content-between py-3">
+		<a routerLink="/" class="fs-4 fw-bold text-decoration-none text-dark">Printing House</a>
+		<a routerLink="/stampar" class="btn btn-outline-secondary">Nazad</a>
+	</div>
+</header>
+
+<main class="container py-5">
+	<h1 class="fw-bold mb-4">Licitacije</h1>
+
+	@if (message) {
+		<p class="text-danger">{{ message }}</p>
+	}
+
+	<h2 class="h5 fw-bold mb-3">Otvorene javne nabavke</h2>
+
+	@if (otvorene.length) {
+		@for (n of otvorene; track n._id) {
+			<div class="bg-white border rounded-3 shadow-sm p-4 mb-4">
+				<p class="text-muted small mb-3">Javna nabavka {{ n._id }} &mdash; raspisano {{ n.datumRaspisivanja }} (rok 10 minuta)</p>
+
+				<div class="table-responsive">
+					<table class="table align-middle">
+						<thead>
+							<tr>
+								<th>Traženo</th>
+								<th>Količina</th>
+								<th>Vaš proizvod</th>
+								<th>Jedinična cena (din)</th>
+							</tr>
+						</thead>
+						<tbody>
+							@for (s of forme[n._id]; track $index) {
+								<tr>
+									<td>{{ s.naziv }}</td>
+									<td>{{ s.kolicina }}</td>
+									<td>
+										<select class="form-select" [(ngModel)]="s.productId" [name]="'proizvod' + n._id + $index">
+											<option value="" disabled>Izaberite proizvod</option>
+											@for (p of mojiProizvodi; track p._id) {
+												<option [value]="p._id">{{ p.naziv }} (na stanju: {{ p.kolicinaNaLageru }})</option>
+											}
+										</select>
+									</td>
+									<td>
+										<input type="number" class="form-control" [(ngModel)]="s.jedinicnaCena" [name]="'cena' + n._id + $index">
+									</td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+
+				<button class="btn btn-primary" (click)="posalji(n)">Pošalji ponudu</button>
+			</div>
+		}
+	} @else {
+		<p class="text-muted mb-4">Trenutno nema otvorenih javnih nabavki.</p>
+	}
+
+	<h2 class="h5 fw-bold mb-3 mt-5">Moje ponude</h2>
+
+	@if (mojePonude.length) {
+		@for (n of mojePonude; track n._id) {
+			<div class="bg-white border rounded-3 shadow-sm p-4 mb-3">
+				<div class="d-flex justify-content-between align-items-center">
+					<div>
+						<p class="mb-1">Javna nabavka {{ n._id }} &mdash; {{ n.datumRaspisivanja }}</p>
+						<p class="text-muted small mb-0">Status: {{ n.status === 'otvorena' ? 'Čeka se rok' : 'Zaključena' }}</p>
+					</div>
+					@if (n.status === 'zakljucena') {
+						@if (n.pobednik?.stamparijaId === stamparijaId) {
+							<span class="badge text-bg-success">Pobedili ste</span>
+						} @else {
+							<span class="badge text-bg-secondary">Niste izabrani</span>
+						}
+					}
+				</div>
+
+				@if (n.status === 'zakljucena' && n.pdfPath) {
+					<a [href]="pdfUrl(n)" target="_blank" class="btn btn-outline-secondary btn-sm mt-2">Preuzmi izveštaj (PDF)</a>
+				}
+			</div>
+		}
+	} @else {
+		<p class="text-muted">Još uvek niste poslali nijednu ponudu.</p>
+	}
+</main>

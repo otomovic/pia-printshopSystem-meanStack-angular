@@ -1,0 +1,51 @@
+<header class="bg-white border-bottom">
+	<div class="container d-flex align-items-center justify-content-between py-3">
+		<a routerLink="/" class="fs-4 fw-bold text-decoration-none text-dark">Printing House</a>
+		<a routerLink="/client" class="btn btn-outline-secondary">Nazad</a>
+	</div>
+</header>
+
+<main class="container py-5">
+	<h1 class="fw-bold mb-4">Javne nabavke</h1>
+
+	@if (nabavke.length) {
+		@for (n of nabavke; track n._id) {
+			<div class="bg-white border rounded-3 shadow-sm p-4 mb-4">
+				<div class="d-flex justify-content-between align-items-start mb-2">
+					<div>
+						<h2 class="h6 fw-bold mb-1">Javna nabavka {{ n._id }}</h2>
+						<p class="text-muted small mb-0">Raspisano: {{ n.datumRaspisivanja }}</p>
+					</div>
+					<span class="badge" [class.text-bg-warning]="n.status === 'otvorena'" [class.text-bg-secondary]="n.status === 'zakljucena'">
+						{{ n.status === 'otvorena' ? 'Otvorena' : 'Zaključena' }}
+					</span>
+				</div>
+
+				<p class="fw-semibold mb-1">Traženi proizvodi:</p>
+				<ul class="mb-3">
+					@for (s of n.stavke; track s.naziv) {
+						<li>{{ s.naziv }} &mdash; {{ s.kolicina }} kom</li>
+					}
+				</ul>
+
+				<p class="text-muted mb-2">Pristiglo ponuda: {{ n.ponude.length }}</p>
+
+				@if (n.status === 'zakljucena') {
+					@if (n.pobednik) {
+						<p class="text-success fw-semibold mb-2">
+							Pobednik: {{ n.pobednik.nazivStamparije }} &mdash; {{ n.pobednik.ukupnaPonuda }} din
+						</p>
+					} @else {
+						<p class="text-muted mb-2">Nijedna štamparija nije poslala ponudu &mdash; nabavka je propala.</p>
+					}
+
+					@if (n.pdfPath) {
+						<a [href]="pdfUrl(n)" target="_blank" class="btn btn-outline-secondary btn-sm">Preuzmi izveštaj (PDF)</a>
+					}
+				}
+			</div>
+		}
+	} @else {
+		<p class="text-muted">Još uvek nemate raspisanih javnih nabavki.</p>
+	}
+</main>

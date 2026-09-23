@@ -1,0 +1,194 @@
+<header class="bg-white border-bottom">
+	<div class="container d-flex align-items-center justify-content-between py-3">
+		<a routerLink="/" class="fs-4 fw-bold text-decoration-none text-dark">Printing House</a>
+		<div class="d-flex gap-2">
+			<a routerLink="/arhiva" class="btn btn-outline-secondary">Arhiva proizvoda</a>
+			@if (currentUser.type === 'pravnoLice') {
+				<a routerLink="/javne-nabavke" class="btn btn-outline-secondary">Javne nabavke</a>
+			}
+			<a routerLink="/korpa" class="btn btn-outline-secondary">Korpa</a>
+			<button class="btn btn-outline-primary" (click)="logout()">Odjavi se</button>
+		</div>
+	</div>
+</header>
+
+<main class="container py-5">
+  <section class="mx-auto" style="max-width: 48rem;">
+		<div class="text-center mb-4">
+			<h1 class="fw-bold mb-2">Profil</h1>
+		</div>
+
+		<form class="bg-white border p-4 p-md-5" (ngSubmit)="updateProfile()">
+			<div class="row g-3">
+				<div class="col-md-6">
+					<label for="username" class="form-label">Korisničko ime</label>
+					<input id="username" type="text" class="form-control" [value]="currentUser.username" disabled>
+				</div>
+				<div class="col-md-6">
+					<label for="password" class="form-label">Nova lozinka</label>
+					<input id="password" type="password" name="password" class="form-control" placeholder="Ostavite prazno da zadržite trenutnu" [(ngModel)]="newPassword">
+				</div>
+				<div class="col-md-6">
+					<label for="firstname" class="form-label">Ime</label>
+					<input id="firstname" type="text" name="firstname" class="form-control" [(ngModel)]="currentUser.firstname">
+				</div>
+				<div class="col-md-6">
+					<label for="lastname" class="form-label">Prezime</label>
+					<input id="lastname" type="text" name="lastname" class="form-control" [(ngModel)]="currentUser.lastname">
+				</div>
+				<div class="col-md-6">
+					<label for="email" class="form-label">Email</label>
+					<input id="email" type="email" name="email" class="form-control" [(ngModel)]="currentUser.email">
+				</div>
+				<div class="col-md-6">
+					<label for="phone" class="form-label">Broj telefona</label>
+					<input id="phone" type="tel" name="phone" class="form-control" [(ngModel)]="currentUser.phone">
+				</div>
+				<div class="col-md-6">
+					<label for="profileImage" class="form-label">Profilna slika</label>
+					<div class="mb-2">
+						@if (previewUrl) {
+							<img [src]="previewUrl" alt="Profilna slika" class="rounded-3 border" style="width: 80px; height: 80px; object-fit: cover;">
+						} @else {
+							<div class="rounded-3 border d-flex align-items-center justify-content-center bg-light text-muted" style="width: 80px; height: 80px; font-size: 2rem;">👤</div>
+						}
+					</div>
+					<input id="profileImage" type="file" accept="image/*" (change)="onFileSelected($event)" class="form-control">
+				</div>
+			</div>
+
+			@if (currentUser.type === 'pravnoLice' || currentUser.type === 'stamparija') {
+				<div class="border-top mt-4 pt-4">
+					<div class="row g-3">
+						<div class="col-md-6">
+							<label for="nazivFirme" class="form-label">Naziv firme</label>
+							<input id="nazivFirme" type="text" name="nazivFirme" class="form-control" [(ngModel)]="currentUser.nazivFirme">
+						</div>
+						<div class="col-md-6">
+							<label for="pib" class="form-label">PIB</label>
+							<input id="pib" type="text" name="pib" class="form-control" [(ngModel)]="currentUser.pib">
+						</div>
+						<div class="col-md-6">
+							<label for="maticniBroj" class="form-label">Matični broj</label>
+							<input id="maticniBroj" type="text" name="maticniBroj" class="form-control" [(ngModel)]="currentUser.maticniBroj">
+						</div>
+						<div class="col-md-6">
+							<label for="adresa" class="form-label">Adresa</label>
+							<input id="adresa" type="text" name="adresa" class="form-control" [(ngModel)]="currentUser.adresa">
+						</div>
+						<div class="col-md-6">
+							<label for="grad" class="form-label">Grad</label>
+							<input id="grad" type="text" name="grad" class="form-control" [(ngModel)]="currentUser.grad">
+						</div>
+					</div>
+				</div>
+			}
+
+			<button type="submit" class="btn btn-primary w-100 mt-4">Sačuvaj izmene</button>
+		</form>
+
+		<div class="bg-white border rounded-3 shadow-sm p-4 mt-4">
+			<h2 class="h5 fw-bold mb-3">Moje narudžbine</h2>
+
+			@if (fakture.length) {
+				<div class="table-responsive">
+					<table class="table table-hover align-middle">
+						<thead>
+							<tr>
+								<th (click)="sortFakture('_id')" role="button">ID fakture</th>
+								<th (click)="sortFakture('nazivStamparije')" role="button">Štamparija</th>
+								<th (click)="sortFakture('gradStamparije')" role="button">Grad</th>
+								<th>Proizvodi</th>
+								<th (click)="sortFakture('ukupanIznos')" role="button">Ukupno</th>
+								<th (click)="sortFakture('status')" role="button">Status</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							@for (f of fakture; track f._id) {
+								<tr>
+									<td>{{ f._id }}</td>
+									<td>{{ f.nazivStamparije }}</td>
+									<td>{{ f.gradStamparije }}</td>
+									<td>
+										<ol class="mb-0 ps-3">
+											@for (s of f.stavke; track s.productId) {
+												<li>{{ s.naziv }} ({{ s.kolicina }})</li>
+											}
+										</ol>
+									</td>
+									<td>{{ f.ukupanIznos }} din</td>
+									<td>{{ statusFakture(f.status) }}</td>
+									<td>
+										@if (f.status === 'naruceno') {
+											<button class="btn btn-outline-danger btn-sm" (click)="otkaziFakturu(f._id)">Otkaži</button>
+										}
+									</td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+			} @else {
+				<p class="text-muted mb-0">Još uvek nemate narudžbina.</p>
+			}
+		</div>
+	</section>
+  <br>
+	<section class="w-100 mx-auto mb-5" style="max-width: 60rem;">
+		<div class="bg-white border rounded-3 shadow-sm p-4">
+			<h2 class="fw-bold mb-4">Pretraga proizvoda</h2>
+			<form class="row g-3 align-items-end mb-2" (ngSubmit)="search()">
+				<div class="col-md-5">
+					<label for="searchTerm" class="form-label">Naziv proizvoda</label>
+					<input id="searchTerm" type="text" name="searchTerm" class="form-control" placeholder="npr. Hemijska olovka" [(ngModel)]="searchTerm" />
+				</div>
+				<div class="col-md-4">
+					<label for="category" class="form-label">Kategorija</label>
+					<select id="category" name="category" class="form-select" [(ngModel)]="selectedCategory">
+						<option value="">Sve kategorije</option>
+						@for (c of categories; track c) {
+							<option [value]="c">{{ c }}</option>
+						}
+					</select>
+				</div>
+				<div class="col-md-3">
+					<button type="submit" class="btn btn-primary w-100">Pretraži</button>
+				</div>
+			</form>
+
+			@if (results.length) {
+				<div class="table-responsive">
+					<table class="table table-hover align-middle mt-3">
+						<thead>
+							<tr>
+								<th (click)="sortBy('naziv')" role="button">Naziv proizvoda</th>
+								<th>Kategorija</th>
+								<th>Cena</th>
+								<th>Štamparija</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							@for (r of results; track r._id) {
+								<tr>
+									<td>{{ r.naziv }}</td>
+									<td>{{ r.categoryName }}</td>
+									<td>{{ r.jedinicnaCena }} din</td>
+									<td>{{ r.printerName }}</td>
+									<td><button class="btn btn-primary btn-sm" (click)="goToDetails(r._id)">Detalji</button></td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+			}
+
+			@if (searched && !results.length) {
+				<p class="text-muted mt-3 mb-0">Nema proizvoda koji odgovaraju pretrazi.</p>
+			}
+		</div>
+	</section>
+
+
+</main>

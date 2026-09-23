@@ -1,0 +1,78 @@
+@if (product) {
+  <main class="container py-5">
+    <a routerLink="/" class="btn btn-outline-secondary btn-sm mb-4">&larr; Nazad</a>
+
+    <div class="row g-4">
+      <div class="col-md-6">
+        <img [src]="mainImage" [alt]="product.naziv" class="img-fluid rounded-3 border w-100 mb-3">
+
+        @if (galleryImages.length > 1) {
+          <div class="d-flex gap-2">
+            @for (img of galleryImages; track img) {
+              <img [src]="img" (click)="selectImage(img)" [alt]="product.naziv"
+                class="rounded-2 border"
+                [class.border-primary]="img === mainImage"
+                [class.border-3]="img === mainImage"
+                style="width: 72px; height: 72px; object-fit: cover; cursor: pointer;">
+            }
+          </div>
+        }
+      </div>
+
+      <div class="col-md-6">
+        <h1 class="fw-bold mb-3">{{ product.naziv }}</h1>
+        <p class="text-muted mb-1">Štamparija: {{ product.printerName }}</p>
+        <p class="text-muted mb-3">Grad: {{ product.grad }}</p>
+
+        @if (isClient && mapUrl) {
+          <iframe [src]="mapUrl" width="100%" height="200" style="border:0;" loading="lazy" class="rounded-3 border mb-3"></iframe>
+        }
+        <p class="fs-4 fw-semibold mb-1">{{ displayPrice }} din</p>
+        @if (selectedUsluga) {
+          <p class="text-muted small mb-3">{{ product.jedinicnaCena }} din + {{ selectedUsluga.dodatnaCenaPoKomadu }} din za "{{ selectedUsluga.tipStampe }}"</p>
+        }
+        <p class="mb-3">👍 {{ product.brojLajkova }}, 👎 {{ product.brojDislajkova }}</p>
+        <p>{{ product.opisDugacak }}</p>
+
+        @if (isClient) {
+          <div class="border-top pt-3 mt-3">
+            <div class="mb-3">
+              <label for="boja" class="form-label">Boja</label>
+              <select id="boja" name="boja" class="form-select" [(ngModel)]="selectedColor">
+                @for (b of product.dostupneBoje; track b) {
+                  <option [value]="b">{{ b }}</option>
+                }
+              </select>
+            </div>
+
+            @if (product.uslugeStampe && product.uslugeStampe.length) {
+              <div class="mb-3">
+                <label for="usluga" class="form-label">Vrsta štampe</label>
+                <select id="usluga" name="usluga" class="form-select" [(ngModel)]="selectedUslugaId">
+                  <option value="">Bez dodatne štampe</option>
+                  @for (u of product.uslugeStampe; track u.idUsluge) {
+                    <option [value]="u.idUsluge">{{ u.tipStampe }} (max {{ u.maxSirinaMm }}x{{ u.maxVisinaMm }}mm, +{{ u.dodatnaCenaPoKomadu }} din)</option>
+                  }
+                </select>
+              </div>
+            }
+
+            <button class="btn btn-primary w-100" (click)="goToPriprema()">Dalje</button>
+          </div>
+        }
+      </div>
+    </div>
+
+    @if (komentari.length) {
+      <div class="mt-5" style="max-width: 40rem;">
+        <h2 class="h5 fw-bold mb-3">Komentari</h2>
+        @for (k of komentari; track k._id) {
+          <div class="border rounded-3 p-3 mb-2" [class.komentar-svoj]="k.username === currentUsername">
+            <p class="mb-1"><strong>{{ k.username }} </strong> <span class="text-muted small">{{ k.datum }}</span></p>
+            <p class="mb-0">{{ k.tekst }}</p>
+          </div>
+        }
+      </div>
+    }
+  </main>
+}

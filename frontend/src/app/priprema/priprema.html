@@ -1,0 +1,47 @@
+@if (product) {
+  <main class="container py-5">
+    <h1 class="fw-bold mb-4">Priprema proizvoda: {{ product.naziv }}</h1>
+
+    <div class="row g-4">
+      <div class="col-md-6">
+        <canvas #canvas class="border rounded-3 w-100"></canvas>
+      </div>
+
+      <div class="col-md-6">
+        <p class="text-muted mb-1">Boja: {{ selectedColor }}</p>
+        <p class="text-muted mb-1">
+          {{ jedinicnaCena }} din po komadu
+          @if (selectedUsluga) {
+            <span>({{ product.jedinicnaCena }} + {{ selectedUsluga.dodatnaCenaPoKomadu }} din za "{{ selectedUsluga.tipStampe }}")</span>
+          }
+        </p>
+        <p class="fs-5 fw-semibold mb-3">Ukupno: {{ ukupnaCena }} din</p>
+
+        <div class="mb-3">
+          <label for="tekst" class="form-label">Tekst na proizvodu</label>
+          <input id="tekst" type="text" name="tekst" class="form-control" [(ngModel)]="tekst" (ngModelChange)="onTekstChange()">
+        </div>
+
+        <div class="mb-3">
+          <label for="slika" class="form-label">Ili postavite sličicu (JPG/PNG/GIF)</label>
+          <input #fileInput id="slika" type="file" accept="image/jpeg,image/png,image/gif" class="form-control" (change)="onFileSelected($event)">
+        </div>
+
+        <div class="mb-3">
+          <label for="kolicina" class="form-label">Količina</label>
+          <input id="kolicina" type="number" name="kolicina" min="1" class="form-control" [(ngModel)]="kolicina">
+        </div>
+
+        @if (message) {
+          <p class="text-danger">{{ message }}</p>
+        }
+
+        <div class="d-flex gap-2">
+          <button class="btn btn-primary flex-fill" (click)="dodajUKorpu()">Dodaj u korpu</button>
+          <button type="button" class="btn btn-outline-secondary" (click)="ponisti()">Poništi</button>
+          <button type="button" class="btn btn-outline-secondary" (click)="nazad()">Nazad</button>
+        </div>
+      </div>
+    </div>
+  </main>
+}

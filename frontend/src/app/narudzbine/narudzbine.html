@@ -1,0 +1,53 @@
+<header class="bg-white border-bottom">
+	<div class="container d-flex align-items-center justify-content-between py-3">
+		<a routerLink="/" class="fs-4 fw-bold text-decoration-none text-dark">Printing House</a>
+		<a routerLink="/stampar" class="btn btn-outline-secondary">Nazad</a>
+	</div>
+</header>
+
+<main class="container py-5">
+	<h1 class="fw-bold mb-4">Naručeni proizvodi</h1>
+
+	@if (fakture.length) {
+		<div class="table-responsive">
+			<table class="table table-hover align-middle bg-white">
+				<thead>
+					<tr>
+						<th>ID fakture</th>
+						<th>Datum</th>
+						<th>Kupac</th>
+						<th>Proizvodi</th>
+						<th>Ukupno</th>
+						<th>Status</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					@for (f of fakture; track f._id) {
+						<tr>
+							<td>{{ f._id }}</td>
+							<td>{{ f.datum }}</td>
+							<td>{{ f.kupac }}</td>
+							<td>
+								<ol class="mb-0 ps-3">
+									@for (s of f.stavke; track s.productId) {
+										<li>{{ s.naziv }} ({{ s.kolicina }})</li>
+									}
+								</ol>
+							</td>
+							<td>{{ f.ukupanIznos }} din</td>
+							<td>{{ statusFakture(f.status) }}</td>
+							<td>
+								@if (naredniKorak(f.status)) {
+									<button class="btn btn-primary btn-sm" (click)="napreduj(f)">{{ naredniKorak(f.status) }}</button>
+								}
+							</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	} @else {
+		<p class="text-muted">Još uvek nemate narudžbina.</p>
+	}
+</main>

@@ -1,0 +1,77 @@
+<header class="bg-white border-bottom">
+	<div class="container d-flex align-items-center justify-content-between py-3">
+		<a routerLink="/" class="fs-4 fw-bold text-decoration-none text-dark">Printing House</a>
+		<div class="d-flex gap-2">
+			<a routerLink="/admin" class="btn btn-outline-secondary">Početna</a>
+			<a routerLink="/admin/kategorije" class="btn btn-outline-secondary">Kategorije</a>
+			<a routerLink="/admin/statistika" class="btn btn-outline-secondary">Statistika</a>
+			<button class="btn btn-outline-primary" (click)="logout()">Odjavi se</button>
+		</div>
+	</div>
+</header>
+
+<main class="container py-5">
+	@if (message) {
+		<p class="text-success">{{ message }}</p>
+	}
+
+	<h1 class="fw-bold mb-3">Zahtevi za registraciju</h1>
+	@if (unacceptedUsers.length) {
+		@for(user of unacceptedUsers; track user.username) {
+			<div class="card mb-3">
+				<div class="card-body">
+					<h5 class="card-title">{{user.username}}</h5>
+					<p class="card-text">Tip naloga: {{tipNaloga(user.type)}}</p>
+					<button class="btn btn-success me-2" (click)="acceptUser(user.username)">Prihvati</button>
+					<button class="btn btn-danger" (click)="rejectUser(user.username)">Odbij</button>
+				</div>
+			</div>
+		}
+	} @else {
+		<p class="text-muted">Trenutno nema neodobrenih zahteva.</p>
+	}
+
+	<h1 class="fw-bold mb-3 mt-5">Svi korisnici</h1>
+	<div class="table-responsive">
+		<table class="table align-middle bg-white">
+			<thead>
+				<tr>
+					<th>Korisničko ime</th>
+					<th>Tip</th>
+					<th>Ime</th>
+					<th>Prezime</th>
+					<th>Telefon</th>
+					<th>Email</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				@for (user of acceptedUsers; track user.username) {
+					<tr>
+						<td>{{ user.username }}</td>
+						<td>{{ tipNaloga(user.type) }}</td>
+						@if (editUsername === user.username) {
+							<td><input class="form-control form-control-sm" [(ngModel)]="user.firstname" [name]="'firstname' + user.username"></td>
+							<td><input class="form-control form-control-sm" [(ngModel)]="user.lastname" [name]="'lastname' + user.username"></td>
+							<td><input class="form-control form-control-sm" [(ngModel)]="user.phone" [name]="'phone' + user.username"></td>
+							<td><input class="form-control form-control-sm" [(ngModel)]="user.email" [name]="'email' + user.username"></td>
+							<td class="text-nowrap">
+								<button class="btn btn-success btn-sm me-1" (click)="sacuvajKorisnika(user)">Sačuvaj</button>
+								<button class="btn btn-secondary btn-sm" (click)="otkaziUredjivanje()">Otkaži</button>
+							</td>
+						} @else {
+							<td>{{ user.firstname }}</td>
+							<td>{{ user.lastname }}</td>
+							<td>{{ user.phone }}</td>
+							<td>{{ user.email }}</td>
+							<td class="text-nowrap">
+								<button class="btn btn-outline-secondary btn-sm me-1" (click)="urediKorisnika(user.username)">Izmeni</button>
+								<button class="btn btn-outline-danger btn-sm" (click)="obrisiKorisnika(user.username)">Obriši</button>
+							</td>
+						}
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</main>

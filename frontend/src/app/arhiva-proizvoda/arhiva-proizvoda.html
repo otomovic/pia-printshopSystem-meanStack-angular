@@ -1,0 +1,51 @@
+<header class="bg-white border-bottom">
+	<div class="container d-flex align-items-center justify-content-between py-3">
+		<a routerLink="/" class="fs-4 fw-bold text-decoration-none text-dark">Printing House</a>
+		<a routerLink="/client" class="btn btn-outline-secondary">Nazad</a>
+	</div>
+</header>
+
+<main class="container py-5">
+	<h1 class="fw-bold mb-4">Arhiva proizvoda</h1>
+
+	@if (redovi.length) {
+		<div class="table-responsive">
+			<table class="table table-hover align-middle bg-white">
+				<thead>
+					<tr>
+						<th (click)="sortBy('datum')" role="button">Datum</th>
+						<th (click)="sortBy('naziv')" role="button">Proizvod</th>
+						<th (click)="sortBy('kolicina')" role="button">Količina</th>
+						<th (click)="sortBy('nazivStamparije')" role="button">Štamparija</th>
+						<th>Status</th>
+						<th>Akcija</th>
+					</tr>
+				</thead>
+				<tbody>
+					@for (r of redovi; track r.fakturaId + r.productId) {
+						<tr>
+							<td>{{ r.datum }}</td>
+							<td>{{ r.naziv }}</td>
+							<td>{{ r.kolicina }}</td>
+							<td>{{ r.nazivStamparije }}</td>
+							<td>{{ statusFakture(r.status) }}</td>
+							<td>
+								@if (r.status === 'isporuceno') {
+									<button class="btn btn-primary btn-sm" (click)="potvrdiPrijem(r)">Primljeno</button>
+								} @else {
+									<div class="d-flex gap-1 align-items-center">
+										<input type="text" class="form-control form-control-sm" style="width: 140px;" placeholder="Komentar" [(ngModel)]="r.komentar">
+										<button class="btn btn-outline-success btn-sm" (click)="posaljiReakciju(r, 'lajk')">👍</button>
+										<button class="btn btn-outline-danger btn-sm" (click)="posaljiReakciju(r, 'dislajk')">👎</button>
+									</div>
+								}
+							</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	} @else {
+		<p class="text-muted">Nemate isporučenih ili primljenih proizvoda.</p>
+	}
+</main>

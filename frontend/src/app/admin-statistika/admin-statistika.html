@@ -1,0 +1,25 @@
+<header class="bg-white border-bottom">
+	<div class="container d-flex align-items-center justify-content-between py-3">
+		<a routerLink="/" class="fs-4 fw-bold text-decoration-none text-dark">Printing House</a>
+		<a routerLink="/admin" class="btn btn-outline-secondary">Nazad</a>
+	</div>
+</header>
+
+<main class="container py-5">
+	<h1 class="fw-bold mb-4">Statistika</h1>
+
+	<div class="bg-white border rounded-3 shadow-sm p-4 mb-4">
+		<h2 class="h5 fw-bold mb-3">Promet štamparija u poslednja 3 meseca</h2>
+		<canvas #prometCanvas></canvas>
+	</div>
+
+	<div class="bg-white border rounded-3 shadow-sm p-4 mb-4">
+		<h2 class="h5 fw-bold mb-3">Najnaručivaniji proizvodi u poslednjih mesec dana</h2>
+		<canvas #najnarucivanijiCanvas></canvas>
+	</div>
+
+	<div class="bg-white border rounded-3 shadow-sm p-4 mb-4">
+		<h2 class="h5 fw-bold mb-3">Kretanje ocene proizvoda kroz vreme</h2>
+		<canvas #oceneCanvas></canvas>
+	</div>
+</main>

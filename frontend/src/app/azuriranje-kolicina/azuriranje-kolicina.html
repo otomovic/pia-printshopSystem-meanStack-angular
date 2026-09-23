@@ -1,0 +1,47 @@
+<header class="bg-white border-bottom">
+	<div class="container d-flex align-items-center justify-content-between py-3">
+		<a routerLink="/" class="fs-4 fw-bold text-decoration-none text-dark">Printing House</a>
+		<a routerLink="/stampar" class="btn btn-outline-secondary">Nazad</a>
+	</div>
+</header>
+
+<main class="container py-5">
+	<h1 class="fw-bold mb-1">Ažuriranje količina</h1>
+
+	@if (message) {
+		<p class="text-danger">{{ message }}</p>
+	}
+
+	@if (proizvodi.length) {
+		<div class="table-responsive">
+			<table class="table table-hover align-middle bg-white">
+				<thead>
+					<tr>
+						<th>Šifra</th>
+						<th>Naziv</th>
+						<th>Kategorija</th>
+						<th>Količina na lageru</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					@for (p of proizvodi; track p._id) {
+						<tr>
+							<td>{{ p.sifra }}</td>
+							<td>{{ p.naziv }}</td>
+							<td>{{ p.kategorija }}</td>
+							<td style="max-width: 140px;">
+								<input type="number" class="form-control" [(ngModel)]="p.kolicinaNaLageru">
+							</td>
+							<td>
+								<button class="btn btn-primary btn-sm" (click)="sacuvaj(p)">Sačuvaj</button>
+							</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	} @else {
+		<p class="text-muted">Još uvek nemate dodatih proizvoda.</p>
+	}
+</main>
