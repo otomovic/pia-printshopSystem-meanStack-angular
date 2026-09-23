@@ -4,5 +4,5 @@ Customers order print products, printers manage their catalog and orders, and ad
 
 - **Frontend:** Angular 20 (standalone components)
 - **Backend:** Node.js, Express, TypeScript
-- **Database:** MongoDB (Mongoose) ('stamparija' running on `localhost:27017`)
+- **Database:** MongoDB (Mongoose) ('stamparija' running on `localhost:27017`; import collections from database_collections)
 - **Additionally:** bcrypt (auth), Multer (image uploads), PDFKit (invoice/tender PDFs), Nodemailer (email)
